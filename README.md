@@ -5,7 +5,7 @@
 <details>
     <summary>
         <h4>Day 1:
-            <a href="https://github.com/Jatin-Jindal/100-days-of-code/tree/main/day1">Simple background changer</a>
+            <a href="day1">Simple background changer</a>
         </h4>
     </summary>
 
