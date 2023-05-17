@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="main-content">
+        <div class="centerBtn">
+          <button id="get-quote">Get random quote!</button>
+        </div>
+        <div id="quote-text" style="display: none"></div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("get-quote").addEventListener("click", (e) => {
+        e.preventDefault();
+        const Quotes = [
+          "The purpose of our lives is to be happy.",
+          "Life is what happens when you're busy making other plans.",
+          "Get busy living or get busy dying.",
+          "You only live once, but if you do it right, once is enough.",
+          "Many of life's failures are people who did not realize how close they were to success when they gave up.",
+          "If you want to live a happy life, tie it to a goal, not to people or things.",
+          "Never let the fear of striking out keep you from playing the game.",
+          "Money and success don't change people; they merely amplify what is already there.",
+        ];
+        var num = Quotes.length;
+        var random = Math.floor(Math.random() * num);
+        document.getElementById("quote-text").style = "";
+        document.getElementById("quote-text").innerHTML = Quotes[random];
+      });
+    </script>
+    <style>
+      body {
+        overflow: hidden;
+        background-color: ivory;
+        color: #666;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #333;
+          color: #aaa;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        body {
+          background: ivory;
+          color: #666;
+        }
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .main-content {
+        font-size: 75px;
+      }
+      #get-quote {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .centerBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #quote-text {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+      #quote-text::before {
+        content: "\275D";
+      }
+      #quote-text::after {
+        content: "\275E";
+      }
+    </style>
+  </body>
+</html>
