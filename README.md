@@ -9,5 +9,14 @@
         </h4>
     </summary>
 
-> Made  a simple website with HTML, CSS and vanilla JavaScript to change background color to whatever color is selected from the color picker.
+> Made a simple website with HTML, CSS and vanilla JavaScript to change background color to whatever color is selected from the color picker.
+</details>
+<details>
+    <summary>
+        <h4>Day 2:
+            <a href="day2">Random Quote generator</a>
+        </h4>
+    </summary>
+
+> Made a simple website with HTML, CSS and vanilla JavaScript to display a random quote from an array of quotes when the button is clicked.
 </details>
