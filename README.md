@@ -20,3 +20,12 @@
 
 > Made a simple website with HTML, CSS and vanilla JavaScript to display a random quote from an array of quotes when the button is clicked.
 </details>
+<details>
+    <summary>
+        <h4>Day 3:
+            <a href="day2">Pass the Message</a>
+        </h4>
+    </summary>
+
+> Made a simple website with HTML, CSS and vanilla JavaScript to send an inputted message when the button is clicked.
+</details>
