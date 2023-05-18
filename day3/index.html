@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="main-content">
+        <div id="inputcontainer">
+          <input type="text" /><button onclick="sendMsg()">Submit</button>
+        </div>
+        <div id="msg-container">
+          <ul id="msgs">
+            <li id="no-msg">No messages sent yet.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      const inputBox = document.querySelector("#inputcontainer input");
+      const msg_list = document.getElementById("msgs");
+      const no_msg = document.getElementById("no-msg");
+      function sendMsg() {
+        if (inputBox.value === "") return;
+        msg_list.innerHTML += `<li>${inputBox.value}</li>`;
+        inputBox.value = "";
+        no_msg.remove();
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: ivory;
+        color: #333;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #333;
+          color: ivory;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: ivory;
+          color: #333;
+        }
+      }
+      #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      #main-content {
+        width: 100%;
+        max-width: 500px;
+        height: 100%;
+        max-height: 500px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      #inputcontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+      }
+      #inputcontainer input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        padding: 0 10px;
+        font-size: 1.2rem;
+        box-shadow: #333;
+      }
+      #inputcontainer button {
+        width: 100px;
+        height: 100%;
+        border: none;
+        outline: none;
+        background-color: #666;
+        color: ivory;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      #msg-container {
+        width: 100%;
+        height: calc(100% - 50px);
+        overflow-y: scroll;
+      }
+      #msgs {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #msgs li {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+      }
+      #msgs li:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </body>
+</html>
