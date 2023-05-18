@@ -23,7 +23,7 @@
 <details>
     <summary>
         <h4>Day 3:
-            <a href="day2">Pass the Message</a>
+            <a href="day3">Pass the Message</a>
         </h4>
     </summary>
 
