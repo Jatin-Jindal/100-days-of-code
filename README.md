@@ -29,3 +29,12 @@
 
 > Made a simple website with HTML, CSS and vanilla JavaScript to send an inputted message when the button is clicked.
 </details>
+<details>
+    <summary>
+        <h4>Day 4:
+            <a href="day4">Counter</a>
+        </h4>
+    </summary>
+
+> Made a simple website with HTML, CSS and vanilla JavaScript to make a counter that can be incremented or decremented by 1 or held down to increment or decrement continuosly.
+</details>
