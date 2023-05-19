@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter App</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="main-content">
+        <div id="count">0</div>
+        <div id="btns">
+          <button class="counter-btn">+</button
+          ><button class="counter-btn">-</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const count = document.getElementById("count");
+      const btns = document.querySelectorAll(".counter-btn");
+      let counter = 0;
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.innerText === "+") {
+            counter++;
+          } else {
+            counter--;
+          }
+          count.innerText = `${counter}`;
+        });
+        btn.addEventListener("mousedown", () => {
+          const interval = setInterval(() => {
+            if (btn.innerText === "+") {
+              counter++;
+            } else {
+              counter--;
+            }
+            count.innerText = `${counter}`;
+          }, 100);
+          // Clear interval when button is released
+          btn.addEventListener("mouseup", () => {
+            clearInterval(interval);
+          });
+        });
+      });
+    </script>
+    <style>
+      body {
+        background-color: ivory;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        font-family: monospace, monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #333;
+          color: ivory;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: ivory;
+          color: #333;
+        }
+      }
+      #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      #main-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      #count {
+        font-size: 8rem;
+        font-weight: bold;
+      }
+      #btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .counter-btn {
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: #333;
+        color: ivory;
+        cursor: pointer;
+      }
+      .counter-btn:hover {
+        background-color: #444;
+      }
+      .counter-btn:active {
+        background-color: #555;
+      }
+    </style>
+  </body>
+</html>
