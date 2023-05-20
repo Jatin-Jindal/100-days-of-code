@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 Days of Code</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="main-content">
+        <div id="heading">
+          <h1>100 Days of Code</h1>
+          <h5>by ghostmander</h5>
+        </div>
+        <div id="days">
+          <details>
+            <summary>Day 1: <a href="day1">Simple background changer</a></summary>
+            <blockquote>
+              Made a simple website with HTML, CSS and vanilla JavaScript to change background color to whatever color is selected from the color
+              picker.
+            </blockquote>
+          </details>
+          <details>
+            <summary>Day 2: <a href="day2">Random Quote generator</a></summary>
+            <blockquote>
+              Made a simple website with HTML, CSS and vanilla JavaScript to display a random quote from an array of quotes when the button is
+              clicked.
+            </blockquote>
+          </details>
+          <details>
+            <summary>Day 3: <a href="day3">Pass the Message</a></summary>
+            <blockquote>
+              Made a simple website with HTML, CSS and vanilla JavaScript to send an inputted message when the button is clicked.
+            </blockquote>
+          </details>
+          <details>
+            <summary>Day 4: <a href="day4">Counter</a></summary>
+            <blockquote>
+              Made a simple website with HTML, CSS and vanilla JavaScript to make a counter that can be incremented or decremented by 1 or held down
+              to increment or decrement continuosly.
+            </blockquote>
+          </details>
+          <details>
+            <summary>Day 5: <a href="day5">Calculator</a></summary>
+            <blockquote>
+              Made a simple calculator with HTML, CSS and JavaScript that can add, subtract, multiply, divide, square root, and square numbers.
+            </blockquote>
+          </details>
+        </div>
+      </div>
+    </div>
+    <style>
+      body {
+        background-color: ivory;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        font-family: monospace, monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #333;
+          color: ivory;
+        }
+        #days details blockquote {
+          border-left: 0.4rem solid #666;
+        }
+        #days details a {
+          color: #aaa;
+        }
+        #days details a:hover {
+          color: #fff;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: ivory;
+          color: #333;
+        }
+        #days details blockquote {
+          border-left: 0.4rem solid #aaa;
+        }
+        #days details a {
+          color: #666;
+        }
+        #days details a:hover {
+          color: #333;
+        }
+      }
+      #content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #main-content {
+        width: 80%;
+        max-width: 800px;
+      }
+      #heading {
+        text-align: center;
+      }
+      #heading h1 {
+        font-size: 3rem;
+        margin: 0;
+      }
+      #heading h5 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      #days {
+        margin-top: 2rem;
+        overflow-y: scroll;
+        height: 60vh;
+      }
+      #days details {
+        margin-bottom: 1rem;
+      }
+      #days details summary {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      #days details blockquote {
+        margin: 0;
+        padding: 0;
+        padding-left: 4%;
+        margin-left: 0.4%;
+        font-size: 1rem;
+      }
+      #days details a {
+        text-decoration: none;
+      }
+      #days details a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </body>
+</html>
