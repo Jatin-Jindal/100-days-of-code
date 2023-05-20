@@ -38,3 +38,12 @@
 
 > Made a simple website with HTML, CSS and vanilla JavaScript to make a counter that can be incremented or decremented by 1 or held down to increment or decrement continuosly.
 </details>
+<details>
+    <summary>
+        <h4>Day 5:
+            <a href="day5">Calculator</a>
+        </h4>
+    </summary>
+
+> Made a simple calculator with HTML, CSS and JavaScript that can add, subtract, multiply, divide, square root, and square numbers.
+</details>
