@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="container">
+        <div id="calc-body">
+          <div id="display">
+            <div id="display-text">0</div>
+          </div>
+          <div id="btns">
+            <div id="top-row">
+              <button class="btn" onclick="square()">x²</button>
+              <button class="btn" onclick="squareRoot()">√x</button>
+              <button class="btn" onclick="percent()">%</button>
+              <button class="btn" onclick="reset()">AC</button>
+            </div>
+            <div id="numbers">
+              <button class="btn">7</button>
+              <button class="btn">8</button>
+              <button class="btn">9</button>
+              <button class="btn">4</button>
+              <button class="btn">5</button>
+              <button class="btn">6</button>
+              <button class="btn">1</button>
+              <button class="btn">2</button>
+              <button class="btn">3</button>
+              <button class="btn">0</button>
+              <button class="btn">.</button>
+              <button class="btn">=</button>
+            </div>
+            <div id="operations">
+              <button class="btn">÷</button>
+              <button class="btn">x</button>
+              <button class="btn">-</button>
+              <button class="btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @font-face {
+        font-family: "digital-7";
+        src: url("./digital-7.mono.ttf");
+      }
+      body {
+        background-color: ivory;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        font-family: "digital-7", monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #333;
+          color: ivory;
+        }
+      }
+      #content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #container {
+        width: 400px;
+        height: 600px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      #calc-body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /*align-items: center;*/
+      }
+      #display {
+        margin: 5% auto;
+        width: 90%;
+        border-radius: 10px;
+        height: 20%;
+        display: flex;
+        justify-content: flex-end;
+        background-color: #ccc;
+        align-items: flex-end;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #333;
+      }
+      #display-text {
+        font-size: 2rem;
+        font-weight: bold;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      #btns {
+        width: 90%;
+        height: 60%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-row-gap: 20px;
+      }
+      #top-row {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      #numbers {
+        grid-column: 1 / 4;
+        grid-row-gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+      #operations {
+        grid-column: 4 / -1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #numbers .btn {
+        background-color: #444;
+        font-family: "digital-7", monospace;
+      }
+      .btn {
+        width: 80px;
+        height: 60px;
+        border-radius: 20%;
+        border: none;
+        background-color: #333;
+        color: ivory;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: auto;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+      .btn:hover {
+        transform: scale(1.1);
+      }
+      .btn:active {
+        transform: scale(0.9);
+      }
+    </style>
+    <script>
+      var operation = "";
+      var state = "input";
+      var currentVal = 0;
+      var currentOperand = "+";
+      const text = document.getElementById("display-text");
+      const numberBtns = document.querySelectorAll("#numbers .btn");
+      const operationBtns = document.querySelectorAll("#operations .btn");
+      const topBtns = document.querySelectorAll("#top-row .btn");
+      const square = () => {
+        const val = parseFloat(text.innerText);
+        text.innerText = val * val;
+      };
+      const squareRoot = () => {
+        const val = parseFloat(text.innerText);
+        text.innerText = Math.sqrt(val);
+      };
+      const percent = () => {
+        const val = parseFloat(text.innerText);
+        text.innerText = val / 100;
+      };
+      const reset = () => {
+        text.innerText = "0";
+        operation = "";
+        state = "input";
+        currentVal = 0;
+        currentOperand = "+";
+      };
+      numberBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.innerText === "=") {
+            state = "operation";
+            const val = parseFloat(text.innerText);
+            if (currentOperand === "+") currentVal += val;
+            else if (currentOperand === "-") currentVal -= val;
+            else if (currentOperand === "x") currentVal *= val;
+            else if (currentOperand === "÷") currentVal /= val;
+            operation = "";
+            state = "input";
+            text.innerText = currentVal;
+            currentVal = 0;
+            currentOperand = "+";
+          } else {
+            if (text.innerText === "0" || state !== "input") {
+              state = "input";
+              text.innerText = btn.innerText;
+            } else {
+              text.innerText += btn.innerText;
+            }
+          }
+        });
+      });
+      operationBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const val = parseFloat(text.innerText);
+          if (state === "input")
+            if (currentOperand === "+") currentVal += val;
+            else if (currentOperand === "-") currentVal -= val;
+            else if (currentOperand === "x") currentVal *= val;
+            else if (currentOperand === "÷") currentVal /= val;
+          if (btn.innerText === "+") currentOperand = "+";
+          else if (btn.innerText === "-") currentOperand = "-";
+          else if (btn.innerText === "x") currentOperand = "x";
+          else if (btn.innerText === "÷") currentOperand = "÷";
+          text.innerText = currentVal;
+          currentOperand = btn.innerText;
+          operation += text.innerText + btn.innerText;
+          state = "operation";
+        });
+      });
+    </script>
+  </body>
+</html>
