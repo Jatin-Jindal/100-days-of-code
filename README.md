@@ -47,3 +47,12 @@
 
 > Made a simple calculator with HTML, CSS and JavaScript that can add, subtract, multiply, divide, square root, and square numbers.
 </details>
+<details>
+    <summary>
+        <h4>Day 6:
+            <a href="day6">Todo app</a>
+        </h4>
+    </summary>
+
+> Made a simple todo app with HTML, CSS and JavaScript.
+</details>
